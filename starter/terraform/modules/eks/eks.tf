@@ -7,9 +7,9 @@ resource "aws_eks_cluster" "cluster" {
     subnet_ids = var.private_subnet_ids
   }
 
-timeouts {
-  create = "30m"
-}
+  timeouts {
+    create = "30m"
+  }
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
